@@ -1,0 +1,101 @@
+@import "../../../styles/partials/variables";
+@import "../../../styles/partials/mixins";
+input.nav__search-bar {
+  border: 1px solid grey;
+  border-radius: 3px;
+  width: 100%;
+  background: transparent url(../../../assets/images/search.svg) no-repeat 13px
+    center;
+  height: 4rem;
+
+  @include tablet {
+    height: 5rem;
+    width: 27rem;
+  }
+}
+
+.nav {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+
+  @include tablet {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+  }
+
+  @include desktop {
+    padding-left: 15rem;
+  }
+
+  &__logo-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      margin-right: 4rem;
+    }
+
+    @include desktop {
+      margin-right: 30rem;
+    }
+  }
+
+  &__logo {
+    height: 3rem;
+  }
+
+  &__search-bar {
+    padding-left: 40px;
+  }
+
+  &__avatar {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    position: relative;
+
+    @include tablet {
+      position: absolute;
+      right: 3rem;
+    }
+
+    @include desktop {
+      right: 13rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+
+    @include tablet {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1rem;
+      margin-left: 0rem;
+    }
+  }
+
+  &__button {
+    border-radius: 3px;
+    width: 100%;
+    background: url(../../../assets/images/upload.svg) no-repeat 13px center;
+    height: 4rem;
+    background-color: $blue;
+    color: white;
+    text-align: center;
+    align-items: center;
+    border: 0px solid transparent;
+
+    @include tablet {
+      width: 18rem;
+      margin-left: 2rem;
+      height: 5rem;
+    }
+  }
+}
