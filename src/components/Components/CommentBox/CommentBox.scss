@@ -1,0 +1,75 @@
+@import "../../../styles/partials/variables";
+@import "../../../styles/partials/mixins";
+
+.comment-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1.6rem 1.6rem 2rem;
+}
+
+.comment {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+
+  &__form {
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__avatar-container {
+    position: relative;
+  }
+
+  &__avatar {
+    width: 45px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  &__name-text {
+    color: $silver;
+    text-transform: uppercase;
+  }
+  &__flex-wrapper {
+    width: 100%;
+  }
+  &__text {
+    padding-bottom: 6rem;
+    padding-left: 1rem;
+    width: 100%;
+    height: 9rem;
+    margin-top: 0.7rem;
+    background-color: $alabaster;
+    border: 1px solid $silver;
+    border-radius: 3px;
+    font-size: 1.3rem;
+  }
+
+  &__button-container {
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+  }
+
+  &__button {
+    width: 100%;
+    border-radius: 3px;
+    background: url(../../../assets/images/add_comment.svg) no-repeat 13px
+      center;
+    background-size: 20px;
+    height: 3.5rem;
+    background-color: $blue;
+    color: white;
+    border: 0px solid transparent;
+    text-transform: uppercase;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+input::placeholder {
+  color: $black;
+}

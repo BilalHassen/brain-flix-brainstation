@@ -1,3 +1,4 @@
+import InfoBox from "../InfoBox/InfoBox";
 import "./MainVideo.scss";
 export default function MainVideo({ video }) {
   return (
@@ -6,6 +7,7 @@ export default function MainVideo({ video }) {
       <div>
         <h1 className="hero__title">{video.title}</h1>
       </div>
+      <InfoBox video={video} />
     </section>
   );
 }

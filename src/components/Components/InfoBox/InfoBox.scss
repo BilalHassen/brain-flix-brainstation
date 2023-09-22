@@ -1,0 +1,48 @@
+@import "../../../styles/partials/mixins";
+@import "../../../styles/partials/variables";
+@import "../../../styles/partials/text";
+
+.video {
+  border-top: solid 1px $mercury;
+  border-bottom: solid 1px $mercury;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+
+  &__text {
+    display: flex;
+    gap: 6rem;
+    margin-bottom: 1rem;
+  }
+
+  &__text-2 {
+    display: flex;
+    gap: 6.7rem;
+  }
+
+  &__auhtor {
+    font-weight: 700;
+  }
+
+  &__views-container,
+  &__likes-container {
+    display: flex;
+    gap: 1rem;
+  }
+  &__para {
+    color: $silver;
+  }
+
+  &__date {
+    color: $silver;
+  }
+
+  &__description {
+    padding-bottom: 1.6rem;
+    padding-top: 1.6rem;
+  }
+
+  &__description-text {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+}

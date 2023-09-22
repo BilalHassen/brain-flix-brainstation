@@ -7,6 +7,8 @@ import avatar from "../src/assets/images/Mohan-muruge.jpg";
 import MainVideoData from "../src/data/video-details.json";
 import sideVideoData from "../src/data/videos.json";
 import MainVideo from "./components/Components/MainVideo/MainVideo";
+import CommentBox from "./components/Components/CommentBox/CommentBox";
+import Comments from "./components/Components/Comments/Comments";
 
 function App() {
   const [video, setVideo] = useState(MainVideoData[0]);
@@ -19,6 +21,8 @@ function App() {
         placeHolder="Search"
       />
       <MainVideo video={video} />
+      <CommentBox />
+      <Comments video={video.comments} />
     </div>
   );
 }
