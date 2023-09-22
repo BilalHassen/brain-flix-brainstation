@@ -1,3 +1,14 @@
-h2 {
-  color: red;
+@import "./styles/partials/reset";
+@import "./styles/partials/text";
+@import "./styles/partials/variables";
+@import "./styles/partials/mixins";
+
+body {
+  min-height: 100vh;
+  font-family: "Avenir Next";
+}
+
+h1 {
+  color: $blue;
+  font-weight: 600;
 }
