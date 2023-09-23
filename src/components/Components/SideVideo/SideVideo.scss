@@ -1,0 +1,38 @@
+@import "../../../styles/partials/mixins";
+@import "../../../styles/partials/variables";
+@import "../../../styles/partials/reset";
+
+.side-video {
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-top: 1.6rem;
+
+  &__container {
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+    padding-bottom: 1.6rem;
+  }
+
+  &__image-wrapper {
+    width: 90px;
+    height: 50px;
+  }
+
+  &__image {
+    max-width: 90px;
+    height: 50px;
+    aspect-ratio: 16/9;
+    border-radius: 4px;
+    background-color: $mercury;
+  }
+
+  &__title {
+    padding-bottom: 1rem;
+    font-size: 1.3rem;
+  }
+
+  &__channel {
+    font-size: 1.3rem;
+  }
+}
