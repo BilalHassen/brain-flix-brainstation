@@ -9,3 +9,27 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+@include desktop {
+  .wrapper {
+    display: flex;
+  }
+
+  .side-video {
+    max-width: 100%;
+
+    @include desktop {
+      border-left: 1px solid $silver;
+    }
+  }
+
+  .side-video-wrapper {
+    width: 100%;
+  }
+}
+
+@include desktop {
+  .flex {
+    width: 90rem;
+  }
+}

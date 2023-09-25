@@ -3,16 +3,58 @@
 
 .hero {
   padding: 0rem 1.6rem 0rem 1.6rem;
+  margin-top: 1.6rem;
+
+  @include tablet {
+    padding: 0;
+  }
+
+  &__video-container {
+    background-color: $darkBlack;
+  }
 
   &__video {
     width: 100%;
-    margin-top: 2.4rem;
-    margin-bottom: 2.4rem;
     height: 100%;
+    aspect-ratio: 16/9;
+
+    @include tablet {
+      padding-left: 3.6rem;
+      padding-right: 3.6rem;
+      object-fit: cover;
+      height: 40rem;
+    }
+
+    @include desktop {
+      padding-left: 20rem;
+      padding-right: 20rem;
+      object-fit: cover;
+      height: 50rem;
+    }
   }
 
   &__title {
     font-size: 2.4rem;
     font-weight: 600;
+
+    @include tablet {
+    }
+
+    @include tablet {
+      font-size: 3.3rem;
+      padding-top: 3.6rem;
+    }
+  }
+}
+
+@include desktop {
+  .hero__title-container {
+    width: 60%;
+  }
+}
+
+@include desktop {
+  .hero__video {
+    aspect-ratio: 16/9;
   }
 }

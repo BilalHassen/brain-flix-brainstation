@@ -2,18 +2,41 @@
 @import "../../../styles/partials/mixins";
 
 .comment-heading {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
   padding: 1.6rem 1.6rem 2rem;
+  margin-bottom: 1.6rem;
+
+  @include tablet {
+    padding-left: 3.6rem;
+  }
+
+  @include desktop {
+    padding-left: 10.7rem;
+  }
 }
 
 .comment {
   padding-left: 1.6rem;
   padding-right: 1.6rem;
 
+  @include tablet {
+    padding-left: 4.1rem;
+    padding-right: 3.6rem;
+    height: 5rem;
+  }
+
   &__form {
     display: flex;
     gap: 2rem;
+
+    @include tablet {
+      width: 100%;
+    }
+    @include desktop {
+      padding-left: 6rem;
+      gap: 3rem;
+    }
   }
 
   &__avatar-container {
@@ -21,18 +44,41 @@
   }
 
   &__avatar {
-    width: 45px;
+    width: 50px;
     height: 40px;
     border-radius: 50%;
+
+    @include tablet {
+      margin-top: 1rem;
+    }
   }
 
   &__name-text {
     color: $silver;
     text-transform: uppercase;
+    font-size: 1.3rem;
+
+    @include tablet {
+      position: absolute;
+      bottom: 6rem;
+    }
   }
   &__flex-wrapper {
     width: 100%;
+
+    @include tablet {
+      width: 100%;
+      display: flex;
+      gap: 2rem;
+    }
   }
+
+  &__text-container {
+    @include tablet {
+      position: relative;
+    }
+  }
+
   &__text {
     padding-bottom: 6rem;
     padding-left: 1rem;
@@ -43,11 +89,26 @@
     border: 1px solid $silver;
     border-radius: 3px;
     font-size: 1.3rem;
+
+    @include tablet {
+      width: 44rem;
+      height: 3.5rem;
+      padding: 0;
+      margin-top: 0rem;
+    }
+
+    @include desktop {
+      width: 40rem;
+    }
   }
 
   &__button-container {
     padding-top: 1.6rem;
     padding-bottom: 1.6rem;
+
+    @include tablet {
+      padding-top: 1.2rem;
+    }
   }
 
   &__button {
@@ -68,6 +129,14 @@
     align-items: center;
     justify-content: center;
 
+    @include tablet {
+      width: 15rem;
+    }
+
+    @include desktop {
+      margin-left: 1rem;
+    }
+
     &:hover {
       background-color: $darkBlue;
     }
@@ -76,4 +145,20 @@
 
 input::placeholder {
   color: $black;
+  padding-left: 1rem;
+}
+
+@include tablet {
+  .comment__flex-wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@include tablet {
+  .comment__flex-wrapper {
+    gap: 3rem;
+  }
 }

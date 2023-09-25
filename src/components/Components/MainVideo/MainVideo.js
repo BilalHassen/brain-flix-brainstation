@@ -3,11 +3,9 @@ import "./MainVideo.scss";
 export default function MainVideo({ video }) {
   return (
     <section className="hero">
-      <video className="hero__video" controls poster={video.image}></video>
-      <div>
-        <h1 className="hero__title">{video.title}</h1>
+      <div className="hero__video-container">
+        <video className="hero__video" controls poster={video.image}></video>
       </div>
-      <InfoBox video={video} />
     </section>
   );
 }

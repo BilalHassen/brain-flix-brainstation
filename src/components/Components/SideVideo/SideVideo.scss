@@ -4,35 +4,79 @@
 
 .side-video {
   padding-left: 1.6rem;
-  padding-right: 1.6rem;
+  padding-right: 0rem;
   padding-top: 1.6rem;
+
+  @include tablet {
+    padding-left: 5rem;
+    width: 70%;
+    padding-bottom: 2.4rem;
+
+    @include desktop {
+      width: 100%;
+      padding-left: 2rem;
+    }
+  }
+
+  &__heading {
+    font-weight: 400;
+    color: $silver;
+  }
 
   &__container {
     display: flex;
     list-style-type: none;
-    gap: 2rem;
     padding-bottom: 1.6rem;
+
+    @include tablet {
+    }
+
+    @include desktop {
+      padding-bottom: 2.4rem;
+      width: 30rem;
+      gap: 2rem;
+    }
   }
 
   &__image-wrapper {
-    width: 90px;
-    height: 50px;
+    width: 150px;
+    height: 70px;
   }
 
   &__image {
-    max-width: 90px;
-    height: 50px;
+    max-width: 150px;
+    height: 70px;
     aspect-ratio: 16/9;
     border-radius: 4px;
     background-color: $mercury;
   }
 
   &__title {
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
     font-size: 1.3rem;
+
+    @include tablet {
+      padding-bottom: 2rem;
+    }
+
+    @include desktop {
+      padding-bottom: 1.6rem;
+    }
   }
 
   &__channel {
     font-size: 1.3rem;
+  }
+}
+
+.side-video__text {
+  width: 13rem;
+
+  @include tablet {
+    width: 17rem;
+  }
+
+  @include desktop {
+    width: 100rem;
   }
 }

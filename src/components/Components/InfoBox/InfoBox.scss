@@ -7,11 +7,34 @@
   border-bottom: solid 1px $mercury;
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
+  margin-left: 1.6rem;
+  margin-top: 1.6rem;
+  margin-right: 1.6rem;
+  position: relative;
+
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    border-top: none;
+    border-length: 10rem;
+    margin-left: 3.6rem;
+    margin-right: 3.6rem;
+
+    @include desktop {
+      width: 86.4rem;
+      padding-left: 6.5rem;
+      padding-right: 3rem;
+    }
+  }
 
   &__text {
     display: flex;
     gap: 6rem;
     margin-bottom: 1rem;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
   }
 
   &__text-2 {
@@ -21,28 +44,100 @@
 
   &__auhtor {
     font-weight: 700;
+    font-size: 1.3rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+    }
   }
 
-  &__views-container,
+  &__views-container {
+    display: flex;
+    gap: 1rem;
+
+    @include tablet {
+      position: absolute;
+      left: 50rem;
+      bottom: 1.65rem;
+    }
+
+    @include desktop {
+      left: 64rem;
+    }
+  }
+
   &__likes-container {
     display: flex;
     gap: 1rem;
   }
+
   &__para {
     color: $silver;
+    font-size: 1.3rem;
   }
 
   &__date {
     color: $silver;
+    @include tablet {
+      position: absolute;
+      right: 52rem;
+      bottom: 1.65rem;
+      font-size: 1.3rem;
+    }
+
+    @include desktop {
+      right: 60rem;
+    }
   }
 
   &__description {
-    padding-bottom: 1.6rem;
-    padding-top: 1.6rem;
+    padding: 1.6rem 1.6rem 1.6rem 1.6rem;
+
+    @include tablet {
+      padding-left: 3.6rem;
+      padding-right: 3.6rem;
+      line-height: 2.2rem;
+      font-size: 1.4rem;
+    }
+    @include desktop {
+      width: 90rem;
+      padding-left: 10.7rem;
+    }
   }
 
   &__description-text {
     font-size: 1.3rem;
     line-height: 1.8rem;
+
+    @include tablet {
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+    }
+  }
+}
+
+@include tablet {
+  .video__author {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+}
+.title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  padding-top: 2.4rem;
+  padding-left: 1.6rem;
+
+  @include tablet {
+    padding-left: 3.4rem;
+    padding-top: 3.6rem;
+    font-size: 3.3rem;
+    line-height: 4.4rem;
+  }
+
+  @include desktop {
+    font-size: 3.3rem;
+    padding-top: 3.6rem;
+    padding-left: 10.7rem;
   }
 }

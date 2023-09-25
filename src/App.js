@@ -10,10 +10,19 @@ import MainVideo from "./components/Components/MainVideo/MainVideo";
 import CommentBox from "./components/Components/CommentBox/CommentBox";
 import Comments from "./components/Components/Comments/Comments";
 import SideVideoList from "./components/Components/SideVideoList/SideVideoList";
+import InfoBox from "./components/Components/InfoBox/InfoBox";
 function App() {
-  const [video, setVideo] = useState(MainVideoData[0]);
+  const [mainVideo, setMainVideo] = useState(MainVideoData[0]);
+  const [sideVideos, setSideVideos] = useState(
+    sideVideoData.filter((v) => v.id !== mainVideo.id)
+  );
 
- 
+  const onClickHandler = (video) => {
+    const mainVideoUpdater = MainVideoData.find((v) => v.id === video.id);
+    setMainVideo(mainVideoUpdater);
+
+    const updatedSideVideos = sideVideoData.filter((v) => v.id !== video.id);
+    setSideVideos(updatedSideVideos);
   };
 
   return (
@@ -24,10 +33,17 @@ function App() {
         buttonText="UPLOAD"
         placeHolder="Search"
       />
-      <MainVideo video={video} />
-      <CommentBox />
-      <Comments video={video.comments} />
-      <SideVideoList sideVideos={sideVideoData} onClick={onClickHandler} />
+      <MainVideo video={mainVideo} />
+      <div className="wrapper">
+        <div className="flex">
+          <InfoBox video={mainVideo} />
+          <CommentBox />
+          <Comments video={mainVideo.comments} />
+        </div>
+        <div className="side-video-wrapper">
+          <SideVideoList sideVideos={sideVideos} onClick={onClickHandler} />
+        </div>
+      </div>
     </div>
   );
 }

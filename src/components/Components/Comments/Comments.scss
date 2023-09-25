@@ -3,6 +3,21 @@
 
 .comments {
   width: 100%;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
+
+  @include tablet {
+    padding-left: 5rem;
+    padding-right: 2.4rem;
+    padding-bottom: 2.4rem;
+    padding-top: 1.6rem;
+  }
+
+  @include desktop {
+    width: 90rem;
+    padding-right: 0rem;
+    padding-left: 9rem;
+  }
 
   &__box {
     display: flex;
@@ -10,9 +25,12 @@
     padding-bottom: 1.6rem;
     padding-top: 1.6rem;
     margin-top: 1.6rem;
-    margin-left: 1.6rem;
-    margin-right: 1rem;
     border-top: 1px solid silver;
+
+    @include desktop {
+      margin-right: 0rem;
+      gap: 3rem;
+    }
   }
 
   &__avatar {
@@ -32,11 +50,19 @@
   &__date-text {
     color: $silver;
     font-size: 1.3rem;
+
+    @include desktop {
+      padding-right: 3.6rem;
+    }
   }
 
   &__text-box {
     display: flex;
     flex-direction: column;
+
+    @include desktop {
+      width: 90rem;
+    }
   }
 
   &__text-wrapper {
@@ -44,6 +70,15 @@
     justify-content: space-between;
     padding-bottom: 1rem;
     line-height: 1.8rem;
+  }
+  &__body {
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+
+    @include tablet {
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+    }
   }
 }
 

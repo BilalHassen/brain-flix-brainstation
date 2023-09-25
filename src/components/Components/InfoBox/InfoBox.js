@@ -10,6 +10,7 @@ export default function InfoBox({ video }) {
 
   return (
     <>
+      <h1 className="title">{video.title}</h1>
       <section className="video">
         <div className="video__text">
           <p className="video__author">By {video.channel}</p>
@@ -20,7 +21,9 @@ export default function InfoBox({ video }) {
         </div>
 
         <div className="video__text-2">
-          <p className="video__date">{formattedDate}</p>
+          <div className="video__date-wrapper">
+            <p className="video__date">{formattedDate}</p>
+          </div>
           <div className="video__likes-container">
             <img src={likesIcon}></img>
             <p className="video__para">{video.likes}</p>

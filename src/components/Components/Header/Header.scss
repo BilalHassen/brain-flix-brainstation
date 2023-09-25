@@ -11,6 +11,7 @@ input.nav__search-bar {
   @include tablet {
     height: 5rem;
     width: 27rem;
+    border-radius: 4px;
   }
 }
 
@@ -24,14 +25,14 @@ input.nav__search-bar {
 
   @include tablet {
     display: flex;
-    margin-top: 2rem;
+    padding-top: 1.6rem;
     align-items: center;
     padding-left: 3.6rem;
     padding-right: 3.6rem;
   }
 
   @include desktop {
-    padding-left: 15rem;
+    padding-left: 10.7rem;
   }
 
   &__logo-container {
