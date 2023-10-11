@@ -1,8 +1,10 @@
 import "./Header.scss";
+import { Link } from "react-router-dom";
+import Page from "../../../pages/Page/Page";
 export default function Header(props) {
   return (
     <header>
-      <nav className="nav">
+      <nav className="nav" id="nav__page">
         <div className="nav__logo-container">
           <img
             className="nav__logo"
@@ -10,6 +12,7 @@ export default function Header(props) {
             alt="brainflix logo"
           ></img>
         </div>
+
         <div className="nav__container">
           <input
             className="nav__search-bar"
@@ -18,9 +21,11 @@ export default function Header(props) {
           ></input>
           <img className="nav__avatar" src={props.avatar}></img>
         </div>
-        <div className="nav__button-conatiner">
-          <button className="nav__button">{props.buttonText}</button>
-        </div>
+        <Link to="/Page">
+          <div className="nav__button-container">
+            <button className="nav__button">{props.buttonText}</button>
+          </div>
+        </Link>
       </nav>
     </header>
   );

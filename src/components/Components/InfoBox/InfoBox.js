@@ -4,9 +4,18 @@ import likesIcon from "../../../assets/images/likes.svg";
 
 export default function InfoBox({ video }) {
   const date = new Date(video.timestamp);
-  const formattedDate = date.toLocaleDateString("en-us");
-  console.log(date);
-  console.log(video);
+  const year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDate();
+  if (month < 10) {
+    month = `0${month}`;
+  }
+  if (day < 10) {
+    day = "0" + day;
+  }
+
+  const formattedDate = `${month}/${day}/${year}`;
+  console.log(formattedDate);
 
   return (
     <>

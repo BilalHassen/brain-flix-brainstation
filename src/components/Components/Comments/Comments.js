@@ -4,7 +4,19 @@ export default function Comments({ video }) {
     <article className="comments">
       {video.map((comment) => {
         const date = new Date(comment.timestamp);
-        const formattedDate = date.toLocaleDateString("en-us");
+        const year = date.getFullYear();
+        let month = date.getMonth();
+        let day = date.getDate();
+        if (month < 10) {
+          month = `0${month}`;
+        }
+        if (day < 10) {
+          day = "0" + day;
+        }
+
+        const formattedDate = `${month}/${day}/${year}`;
+        console.log(date);
+
         return (
           <div className="comments__box">
             <div className="comments__avatar"></div>
