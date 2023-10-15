@@ -8,7 +8,7 @@ export default function ({ sideVideos, onClick }) {
       <h1 className="side-video__heading"> next videos</h1>
       {sideVideos.map((video) => (
         <SideVideo
-          onClick={() => onClick(video)}
+          id={video.id}
           key={video.id}
           channel={video.channel}
           title={video.title}

@@ -1,9 +1,9 @@
 import "../CommentBox/CommentBox.scss";
 import avatar from "../../../assets/images/Mohan-muruge.jpg";
-export default function () {
+export default function ({ video }) {
   return (
     <>
-      <h1 className="comment-heading">3 Comments</h1>
+      <h1 className="comment-heading">{video.comments.length} comments</h1>
       <div className="comment__flex-wrapper">
         <section className="comment">
           <form className="comment__form">

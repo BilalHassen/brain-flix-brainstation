@@ -5,13 +5,15 @@ export default function Header(props) {
   return (
     <header>
       <nav className="nav" id="nav__page">
-        <div className="nav__logo-container">
-          <img
-            className="nav__logo"
-            src={props.logo}
-            alt="brainflix logo"
-          ></img>
-        </div>
+        <Link to="/">
+          <div className="nav__logo-container">
+            <img
+              className="nav__logo"
+              src={props.logo}
+              alt="brainflix logo"
+            ></img>
+          </div>
+        </Link>
 
         <div className="nav__container">
           <input

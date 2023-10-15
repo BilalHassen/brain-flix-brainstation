@@ -107,7 +107,7 @@
       width: 25%;
     }
     @include desktop {
-      width: 15%;
+      width: 20%;
     }
   }
 
@@ -141,6 +141,7 @@
     &__button-wrapper {
       padding-left: 5rem;
       border-top: 1px solid $mercury;
+      width: 100%;
     }
   }
 
@@ -169,6 +170,7 @@
   .upload__flex-wrapper {
     display: flex;
     gap: 2rem;
+    position: relative;
   }
 }
 

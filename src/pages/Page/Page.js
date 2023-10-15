@@ -58,6 +58,7 @@ export default function Page() {
                 name="description"
                 placeholder="Add a description to your video"
               ></textarea>
+
               <div className="upload__button-wrapper">
                 <button className="upload__publish-button">PUBLISH</button>
                 <button className="upload__cancel-button">CANCEL</button>
