@@ -15,7 +15,6 @@ export default function InfoBox({ video }) {
   }
 
   const formattedDate = `${month}/${day}/${year}`;
-  console.log(formattedDate);
 
   return (
     <>

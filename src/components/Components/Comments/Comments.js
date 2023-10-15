@@ -15,7 +15,6 @@ export default function Comments({ video }) {
         }
 
         const formattedDate = `${month}/${day}/${year}`;
-        console.log(date);
 
         return (
           <div className="comments__box">

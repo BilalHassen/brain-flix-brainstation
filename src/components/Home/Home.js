@@ -20,6 +20,50 @@ export default function Home() {
   const [mainVideo, setMainVideo] = useState(null);
   const [sideVideos, setSideVideos] = useState([]);
 
+  let { id } = useParams();
+
+  useEffect(() => {
+    getDefaultVideo();
+  }, []);
+
+  useEffect(() => {
+    getAllVideos();
+  }, [id]);
+
+  useEffect(() => {
+    getSideVideos();
+  }, [id]);
+
+  const getDefaultVideo = () => {
+    axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
+      let mainVideoId = response.data[0].id;
+      id = response.data[0].id;
+      axios
+        .get(`${apiUrl}/videos/${mainVideoId}?api_key=${apiKey}`)
+        .then((response) => {
+          let mainVideo = response.data;
+          setMainVideo(mainVideo);
+        });
+    });
+  };
+
+  const getAllVideos = () => {
+    if (id) {
+      axios.get(`${apiUrl}/videos/${id}?api_key=${apiKey}`).then((response) => {
+        let allVideosData = response.data;
+        setMainVideo(allVideosData);
+      });
+    }
+  };
+
+  const getSideVideos = () => {
+    axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
+      let sideVideos = response.data;
+      let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
+      setSideVideos(filteredSideVideos);
+    });
+  };
+
   return (
     <>
       <Header
@@ -29,12 +73,14 @@ export default function Home() {
         placeHolder="Search"
       />
 
-      <MainVideo video={mainVideo} />
+      {/*{mainVideo &&/ is so that the components only render
+when the data is made available} */}
+      {mainVideo && <MainVideo video={mainVideo} />}
       <div className="wrapper">
         <div className="flex">
-          <InfoBox video={mainVideo} />
-          <CommentBox video={mainVideo} />
-          <Comments video={mainVideo.comments} />
+          {mainVideo && <InfoBox video={mainVideo} />}
+          {mainVideo && <CommentBox video={mainVideo} />}
+          {mainVideo && <Comments video={mainVideo.comments} />}
         </div>
         <div className="side-video-wrapper">
           <SideVideoList sideVideos={sideVideos} />
