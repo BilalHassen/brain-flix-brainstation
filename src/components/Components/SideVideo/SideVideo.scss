@@ -11,6 +11,7 @@
     padding-left: 5rem;
     width: 70%;
     padding-bottom: 2.4rem;
+    padding-top: 0;
 
     @include desktop {
       width: 100%;
@@ -20,6 +21,7 @@
 
   &__heading {
     font-weight: 400;
+    padding-bottom: 2.6rem;
     color: $silver;
   }
 

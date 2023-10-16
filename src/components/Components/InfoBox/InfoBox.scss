@@ -58,7 +58,7 @@
     @include tablet {
       position: absolute;
       left: 50rem;
-      bottom: 1.65rem;
+      bottom: 1.7rem;
     }
 
     @include desktop {
@@ -80,8 +80,8 @@
     color: $silver;
     @include tablet {
       position: absolute;
-      right: 52rem;
-      bottom: 1.65rem;
+      right: 49rem;
+      bottom: 1.7rem;
       font-size: 1.3rem;
     }
 

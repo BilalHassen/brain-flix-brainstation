@@ -10,7 +10,7 @@ export default function Header(props) {
             <img
               className="nav__logo"
               src={props.logo}
-              alt="brainflix logo"
+              alt="brainflix-logo"
             ></img>
           </div>
         </Link>

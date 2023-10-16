@@ -23,7 +23,7 @@ export default function InfoBox({ video }) {
         <div className="video__text">
           <p className="video__author">By {video.channel}</p>
           <div className="video__views-container">
-            <img src={ViewsIcon}></img>
+            <img src={ViewsIcon} alt="views-icon"></img>
             <p className="video__para">{video.views}</p>
           </div>
         </div>

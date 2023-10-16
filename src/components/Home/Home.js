@@ -6,8 +6,6 @@ import Comments from "../Components/Comments/Comments";
 import SideVideoList from "../Components/SideVideoList/SideVideoList";
 import logo from "../../assets/images/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
-import MainVideoData from "../../data/video-details.json";
-import sideVideoData from "../../data/videos.json";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";

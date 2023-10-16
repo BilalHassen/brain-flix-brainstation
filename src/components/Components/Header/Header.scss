@@ -10,7 +10,7 @@ input.nav__search-bar {
 
   @include tablet {
     height: 5rem;
-    width: 27rem;
+    width: 26rem;
     border-radius: 4px;
   }
 }
@@ -42,7 +42,7 @@ input.nav__search-bar {
     margin-bottom: 1rem;
 
     @include tablet {
-      margin-right: 4rem;
+      margin-right: 5rem;
     }
 
     @include desktop {
