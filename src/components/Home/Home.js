@@ -41,25 +41,38 @@ export default function Home() {
         .then((response) => {
           let mainVideo = response.data;
           setMainVideo(mainVideo);
+        })
+        .catch((error) => {
+          alert(`${error} failed to retrieve data`);
         });
     });
   };
 
   const getAllVideos = () => {
     if (id) {
-      axios.get(`${apiUrl}/videos/${id}?api_key=${apiKey}`).then((response) => {
-        let allVideosData = response.data;
-        setMainVideo(allVideosData);
-      });
+      axios
+        .get(`${apiUrl}/videos/${id}?api_key=${apiKey}`)
+        .then((response) => {
+          let allVideosData = response.data;
+          setMainVideo(allVideosData);
+        })
+        .catch((error) => {
+          alert(`${error} failed to retrieve data`);
+        });
     }
   };
 
   const getSideVideos = () => {
-    axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
-      let sideVideos = response.data;
-      let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
-      setSideVideos(filteredSideVideos);
-    });
+    axios
+      .get(`${apiUrl}/videos/?api_key=${apiKey}`)
+      .then((response) => {
+        let sideVideos = response.data;
+        let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
+        setSideVideos(filteredSideVideos);
+      })
+      .catch((error) => {
+        alert(`${error} failed to retrieve data`);
+      });
   };
 
   return (

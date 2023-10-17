@@ -27,7 +27,7 @@ export default function Page() {
         logo={logo}
         avatar={avatar}
         buttonText="UPLOAD"
-        placeholder="Search"
+        placeHolder="Search"
       />
       <section className="upload">
         <h1 className="upload__page-title">Upload Video</h1>
