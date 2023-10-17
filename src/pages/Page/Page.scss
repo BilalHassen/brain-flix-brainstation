@@ -103,6 +103,10 @@
     border: 0px solid transparent;
     margin-top: 1.6rem;
 
+    &:hover {
+      background-color: $darkBlue;
+    }
+
     @include tablet {
       width: 25%;
     }
