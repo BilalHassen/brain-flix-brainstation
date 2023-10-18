@@ -18,7 +18,7 @@ export default function Home() {
   const [mainVideo, setMainVideo] = useState(null);
   const [sideVideos, setSideVideos] = useState([]);
 
-  let { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     getDefaultVideo();
@@ -35,7 +35,7 @@ export default function Home() {
   const getDefaultVideo = () => {
     axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
       let mainVideoId = response.data[0].id;
-      id = response.data[0].id;
+
       axios
         .get(`${apiUrl}/videos/${mainVideoId}?api_key=${apiKey}`)
         .then((response) => {
@@ -54,6 +54,7 @@ export default function Home() {
         .get(`${apiUrl}/videos/${id}?api_key=${apiKey}`)
         .then((response) => {
           let allVideosData = response.data;
+          console.log(allVideosData);
           setMainVideo(allVideosData);
         })
         .catch((error) => {
@@ -67,6 +68,7 @@ export default function Home() {
       .get(`${apiUrl}/videos/?api_key=${apiKey}`)
       .then((response) => {
         let sideVideos = response.data;
+        console.log(sideVideos);
         let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
         setSideVideos(filteredSideVideos);
       })
