@@ -19,13 +19,8 @@ export default function Home() {
   const [sideVideos, setSideVideos] = useState([]);
 
   let { id } = useParams();
-
   useEffect(() => {
     getDefaultVideo();
-  }, []);
-
-  useEffect(() => {
-    getAllVideos();
   }, [id]);
 
   useEffect(() => {
@@ -33,30 +28,29 @@ export default function Home() {
   }, [id]);
 
   const getDefaultVideo = () => {
-    axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
-      let mainVideoId = response.data[0].id;
-      id = response.data[0].id;
-
-      axios
-        .get(`${apiUrl}/videos/${mainVideoId}?api_key=${apiKey}`)
-        .then((response) => {
-          let mainVideo = response.data;
-          setMainVideo(mainVideo);
-        })
-        .catch((error) => {
-          alert(`${error} failed to retrieve data`);
-        });
-    });
-  };
-
-  const getAllVideos = () => {
-    if (id) {
+    if (id === undefined) {
+      axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
+        // console.log(response.data);
+        let defaultVideoId = response.data[0].id;
+        id = defaultVideoId;
+        axios
+          .get(`${apiUrl}/videos/${defaultVideoId}/?api_key=${apiKey}`)
+          .then((response) => {
+            // console.log(response.data);
+            let defaultVideoInfo = response.data;
+            setMainVideo(defaultVideoInfo);
+          })
+          .catch((error) => {
+            alert(`${error} failed to retrieve data`);
+          });
+      });
+    } else {
       axios
         .get(`${apiUrl}/videos/${id}?api_key=${apiKey}`)
         .then((response) => {
-          let allVideosData = response.data;
-          console.log(allVideosData);
-          setMainVideo(allVideosData);
+          console.log(response.data);
+          let videoUpdater = response.data;
+          setMainVideo(videoUpdater);
         })
         .catch((error) => {
           alert(`${error} failed to retrieve data`);
@@ -68,9 +62,10 @@ export default function Home() {
     axios
       .get(`${apiUrl}/videos/?api_key=${apiKey}`)
       .then((response) => {
+        // console.log(response.data);
         let sideVideos = response.data;
-        console.log(sideVideos);
         let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
+        // console.log(id);
         setSideVideos(filteredSideVideos);
       })
       .catch((error) => {
@@ -103,3 +98,63 @@ when the data is made available} */}
     </>
   );
 }
+
+// console.log(id);
+// useEffect(() => {
+//   getDefaultVideo();
+// }, []);
+
+// useEffect(() => {
+//   getAllVideos();
+// }, [id]);
+
+// useEffect(() => {
+//   getSideVideos();
+// }, [id]);
+
+// const getDefaultVideo = () => {
+//   axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
+//     let mainVideoId = response.data[0].id;
+//     id = response.data[0].id;
+
+//     axios
+//       .get(`${apiUrl}/videos/${mainVideoId}?api_key=${apiKey}`)
+//       .then((response) => {
+//         let mainVideo = response.data;
+//         setMainVideo(mainVideo);
+//       })
+//       .catch((error) => {
+//         alert(`${error} failed to retrieve data`);
+//       });
+//   });
+// };
+
+// const getAllVideos = () => {
+//   if (id) {
+//     axios
+//       .get(`${apiUrl}/videos/${id}?api_key=${apiKey}`)
+//       .then((response) => {
+//         let allVideosData = response.data;
+//         console.log(allVideosData);
+//         setMainVideo(allVideosData);
+//       })
+//       .catch((error) => {
+//         alert(`${error} failed to retrieve data`);
+//       });
+//   }
+// };
+
+// const getSideVideos = () => {
+//   axios
+//     .get(`${apiUrl}/videos/?api_key=${apiKey}`)
+//     .then((response) => {
+//       let sideVideos = response.data;
+//       console.log(sideVideos);
+//       let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
+//       setSideVideos(filteredSideVideos);
+//     })
+//     .catch((error) => {
+//       alert(`${error} failed to retrieve data`);
+//     });
+// };
+// console.log(id);

@@ -5,7 +5,7 @@ export default function Comments({ video }) {
       {video.map((comment) => {
         const date = new Date(comment.timestamp);
         const year = date.getFullYear();
-        let month = date.getMonth();
+        let month = date.getMonth() + 1;
         let day = date.getDate();
         if (month < 10) {
           month = `0${month}`;

@@ -5,7 +5,7 @@ import likesIcon from "../../../assets/images/likes.svg";
 export default function InfoBox({ video }) {
   const date = new Date(video.timestamp);
   const year = date.getFullYear();
-  let month = date.getMonth();
+  let month = date.getMonth() + 1;
   let day = date.getDate();
   if (month < 10) {
     month = `0${month}`;

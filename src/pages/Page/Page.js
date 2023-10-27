@@ -4,6 +4,7 @@ import logo from "../../assets/images/BrainFlix-logo.svg";
 import avatar from "../../assets/images/Mohan-muruge.jpg";
 import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./Page.scss";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 export default function Page() {
   const navigate = useNavigate();
@@ -61,7 +62,9 @@ export default function Page() {
 
               <div className="upload__button-wrapper">
                 <button className="upload__publish-button">PUBLISH</button>
-                <button className="upload__cancel-button">CANCEL</button>
+                <Link to="/">
+                  <button className="upload__cancel-button">CANCEL</button>
+                </Link>
               </div>
             </form>
           </div>
