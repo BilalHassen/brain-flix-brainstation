@@ -29,24 +29,26 @@ export default function Home() {
 
   const getDefaultVideo = () => {
     if (id === undefined) {
-      axios.get(`${apiUrl}/videos/?api_key=${apiKey}`).then((response) => {
-        // console.log(response.data);
-        let defaultVideoId = response.data[0].id;
-        id = defaultVideoId;
-        axios
-          .get(`${apiUrl}/videos/${defaultVideoId}/?api_key=${apiKey}`)
-          .then((response) => {
-            // console.log(response.data);
-            let defaultVideoInfo = response.data;
-            setMainVideo(defaultVideoInfo);
-          })
-          .catch((error) => {
-            alert(`${error} failed to retrieve data`);
-          });
-      });
+      axios
+        .get(`http://localhost:8080/videos/?api_key=${apiKey}`)
+        .then((response) => {
+          console.log(response.data);
+          let defaultVideoId = response.data[0].id;
+          id = defaultVideoId;
+          axios
+            .get(`${apiUrl}/videos/${defaultVideoId}/?api_key=${apiKey}`)
+            .then((response) => {
+              console.log(response.data);
+              let defaultVideoInfo = response.data;
+              setMainVideo(defaultVideoInfo);
+            })
+            .catch((error) => {
+              alert(`${error} failed to retrieve data`);
+            });
+        });
     } else {
       axios
-        .get(`${apiUrl}/videos/${id}?api_key=${apiKey}`)
+        .get(`http://localhost:8080/videos/${id}?api_key=${apiKey}`)
         .then((response) => {
           console.log(response.data);
           let videoUpdater = response.data;
@@ -60,9 +62,9 @@ export default function Home() {
 
   const getSideVideos = () => {
     axios
-      .get(`${apiUrl}/videos/?api_key=${apiKey}`)
+      .get(`http://localhost:8080/videos/?api_key=${apiKey}`)
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         let sideVideos = response.data;
         let filteredSideVideos = sideVideos.filter((video) => video.id !== id);
         // console.log(id);

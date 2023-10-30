@@ -6,6 +6,10 @@ import thumbnail from "../../assets/images/Upload-video-preview.jpg";
 import "./Page.scss";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const apiKey = "ded52892-43a5-4da4-a30a-b1cde2beee29";
+
 export default function Page() {
   const navigate = useNavigate();
   const formHandler = (event) => {
@@ -15,9 +19,15 @@ export default function Page() {
       titleInput: event.target.title.value,
       descriptionInput: event.target.description.value,
     };
+
     if (textInfo.titleInput === "" || textInfo.descriptionInput === "") {
       alert("Please fill in both text fields");
     } else {
+      axios
+        .post(`http://localhost:8080/videos/?api_key=${apiKey}`, textInfo)
+        .then((response) => {
+          console.log({ response });
+        });
       alert("form submission sucessful");
       navigate("/");
     }
